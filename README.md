@@ -10,7 +10,7 @@ Before you start building the solution witch _clang_ or _g++_, you need to insta
 - Pistache - REST framework for C++
 - RapidJson
 - Lua 5.3+ - for rule scripting
-- Sol2/3 - C++ bindings for Lua (header only)
+- Sol2/3 - C++ bindings for Lua (header only library)
 - optional: luarocks install lsqlite3complete (only for running rule018.lua)
 
 ### On MAC M1
@@ -18,6 +18,7 @@ Before you start building the solution witch _clang_ or _g++_, you need to insta
 ```shell
 $ brew install pistache
 $ brew install rapidjson
+$ brew install lua
 $ brew install luarocks
 ```
 

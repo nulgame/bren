@@ -1,0 +1,5 @@
+{
+    "rule": "rule001",
+    "description": "test empty variables",
+    "variables": { }
+}

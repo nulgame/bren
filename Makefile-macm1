@@ -1,0 +1,43 @@
+# Business Rule Engine 
+# Mariusz Pietraś @ 2025 mp@nulgame.com
+CC      = g++
+CCFLAGS = -g -std=c++20 -O0 -Wall -Wpedantic
+# -Wno-inconsistent-missing-override
+SRCDIR = src/
+OBJDIR = obj/
+INCPATH = -I. -Iinclude -I/opt/homebrew/include
+LIBPATH = -Llib -L/opt/homebrew/lib
+LDFLAGS += -lpistache 
+LDFLAGS += -llua
+
+OBJECTS = $(OBJDIR)main.o \
+		  $(OBJDIR)service.o \
+		  $(OBJDIR)rule-engine.o \
+		  $(OBJDIR)string-utils.o
+
+TARGET = business-rule-engine
+
+all: dirs $(TARGET)
+
+$(TARGET): $(OBJECTS)
+	$(CC) $(CCFLAGS) -o $@ $(OBJECTS) $(INCPATH) $(LIBPATH) $(LDFLAGS) -rpath /Users/mp/local/lib 
+
+$(OBJDIR)main.o: $(SRCDIR)main.cc
+	$(CC) -c $(CCFLAGS) $(INCPATH) -o $(OBJDIR)main.o $(SRCDIR)main.cc
+
+$(OBJDIR)service.o: $(SRCDIR)service.cc
+	$(CC) -c $(CCFLAGS) $(INCPATH) -o $(OBJDIR)service.o $(SRCDIR)service.cc
+
+$(OBJDIR)rule-engine.o: $(SRCDIR)rule-engine.cc
+	$(CC) -c $(CCFLAGS) $(INCPATH) -o $(OBJDIR)rule-engine.o $(SRCDIR)rule-engine.cc
+
+$(OBJDIR)string-utils.o: $(SRCDIR)string-utils.cc
+	$(CC) -c $(CCFLAGS) $(INCPATH) -o $(OBJDIR)string-utils.o $(SRCDIR)string-utils.cc
+
+dirs:
+	[ -d $(OBJDIR) ] || mkdir -p $(OBJDIR)
+
+.PHONY: clean
+
+clean:
+	@rm -f $(OBJECTS) core

@@ -1,0 +1,8 @@
+{
+    "rule": "rule300",
+    "description": "indicates the required level of acceptance",
+    "variables": {
+        "paymentAmount": 2000,
+        "fraudScore": 0.2
+    }
+}

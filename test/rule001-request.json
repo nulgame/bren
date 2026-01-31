@@ -1,0 +1,6 @@
+{
+    "rule": "rule001",
+    "variables": {
+        "force": 0
+    }
+}

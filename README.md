@@ -51,7 +51,7 @@ The rules are located in the _rules/_ directory.
 
 ## Running
 
-_bren_ is starting as forground service on TCP port 2345 but using _--port number_ you can pass other port.
+_bren_ is starting as foreground service on TCP port 2345 but using _--port number_ you can pass other port.
 
 ```shell
 $ ./business_rule_engine --port 12345
